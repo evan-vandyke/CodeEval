@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
+/*Input sample:
+
+The first argument will be a path to a filename containing an input string followed by a comma and then the characters that need to be scrubbed. E.g.
+
+how are you, abc
+hello world, def
+
+Output sample:
+
+Print to stdout, the scrubbed strings, one per line. Trim out any leading/trailing whitespaces if they occur. E.g.
+
+how re you
+hllo worl*/
+namespace RemoveCharacter
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] allLines = File.ReadAllLines(args[0]);
+            foreach (string val in allLines)
+            {
+                string s="";                
+                int index = val.IndexOf(",");
+                if (index > 0)
+                {
+                    s = val.Substring(0, index);
+                }
+                char[] chartToBeRemoved = val.Substring(val.LastIndexOf(",") + 2).ToCharArray();
+
+                for (int i = 0; i < s.Length; i++)
+                {
+
+                    foreach (char c in s)
+                    {
+                        if (chartToBeRemoved.Contains(c))
+                        {
+
+                           s = s.Replace(c.ToString(),"");
+                        }
+                    }
+                }
+                Console.WriteLine(s);
+            }
+        }
+    }
+}
