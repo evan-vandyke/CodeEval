@@ -22,7 +22,14 @@ The next N line contains the coordinates of N two-dimensional points.
 The first of the two numbers denotes the X-coordinate and the latter denotes 
 the Y-coordinate. The input is terminated by a set whose N=0. 
 This set should not be processed. The value of the coordinates will be less 
-than 40000 and non-negative. */
+than 40000 and non-negative. 
+
+OUTPUT SAMPLE:
+
+For each set of input produce a single line of output containing a floating point 
+number (with four digits after the decimal point) which denotes the distance between 
+the closest two points. If there is no such two points in the input whose distance is
+less than 10000, print the line INFINITY  */
 
 namespace ClosestPair
 {
